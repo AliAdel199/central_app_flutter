@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'add_user_screen.dart';
-import 'edit_permissions_screen.dart';
 
 class UsersManagementScreen extends StatefulWidget {
   const UsersManagementScreen({super.key});
@@ -95,29 +94,13 @@ class _UsersManagementScreenState extends State<UsersManagementScreen> {
                       ],
                     ),
                     trailing: PopupMenuButton<String>(
-                      onSelected: (value) {
-                        if (value == 'edit_permissions') {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (_) => EditPermissionsScreen(
-                                userId: user['id'],
-                                userName: user['full_name'] ?? '',
-                              ),
-                            ),
-                          );
-                        } else {
-                          updateRole(user['id'], value);
-                        }
-                      },
+                      onSelected: (role) => updateRole(user['id'], role),
                       itemBuilder: (context) => [
                         const PopupMenuItem(value: 'super_admin', child: Text('Super Admin')),
                         const PopupMenuItem(value: 'manager', child: Text('Manager')),
                         const PopupMenuItem(value: 'staff', child: Text('Staff')),
-                        const PopupMenuDivider(),
-                        const PopupMenuItem(value: 'edit_permissions', child: Text('تعديل الصلاحيات')),
                       ],
-                      icon: const Icon(Icons.more_vert),
+                      icon: const Icon(Icons.edit),
                     ),
                   ),
                 );

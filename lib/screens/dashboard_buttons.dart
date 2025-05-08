@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'logs_screen_styled.dart';
 import 'subscription_alerts_screen.dart';
 import 'payment_reports_tabs.dart';
 import 'all_payments_export_screen.dart';
@@ -20,10 +21,15 @@ class DashboardButtons extends StatelessWidget {
         label: 'إضافة مدرسة',
         onTap: () => Navigator.pushNamed(context, '/add-school'),
       ),
-      _DashboardButton(
+      // _DashboardButton(
+      //   icon: Icons.people,
+      //   label: 'عرض المدراء',
+      //   onTap: () => Navigator.pushNamed(context, '/managers'),
+      // ),
+          _DashboardButton(
         icon: Icons.people,
-        label: 'عرض المدراء',
-        onTap: () => Navigator.pushNamed(context, '/managers'),
+        label: 'عرض المستخدمين',
+        onTap: () => Navigator.pushNamed(context, '/users'),
       ),
       _DashboardButton(
         icon: Icons.list,
@@ -52,6 +58,14 @@ class DashboardButtons extends StatelessWidget {
         onTap: () => Navigator.push(
           context,
           MaterialPageRoute(builder: (_) => const AllPaymentsExportScreen()),
+        ),
+      ),
+          _DashboardButton(
+        icon: Icons.file_download,
+        label: 'سجل التغيرات',
+        onTap: () => Navigator.push(
+          context,
+          MaterialPageRoute(builder: (_) => const LogsScreen()),
         ),
       ),
     ];

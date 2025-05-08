@@ -1,8 +1,10 @@
 import 'package:central_app_flutter/screens/ManagersListScreen.dart';
 import 'package:central_app_flutter/screens/RegisterManagerScreen.dart';
 import 'package:central_app_flutter/screens/school_status_screen.dart';
+import 'package:central_app_flutter/screens/users_management_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'screens/add_user_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/schools_list_screen.dart';
@@ -42,9 +44,9 @@ class CentralApp extends StatelessWidget {
             '/schools': (context) => const SchoolsListScreen(),
             '/addSchool': (context) => const AddSchoolScreen(),
             '/add-school': (context) => const AddSchoolScreen(),
-            '/add-manager': (context) => const RegisterManagerScreen(),
-            '/managers': (context) => const ManagersListScreen(),
+            '/add-manager': (context) => const AddUserScreen(),
             '/school-status': (context) => const SchoolStatusScreen(),
+            '/users': (context) => const UsersManagementScreen()
           },
         );
       },
